@@ -1,20 +1,25 @@
-const Todolist = () => {
+import React from 'react';
+const Todolist = (props) => {
+  
+  let tododata = props.todoData;
   return (
     <>
-      <div className="row Nk-list">
-        <div className="col-4">Narendra Kumar</div>
-        <div className="col-4 ">20/11/1989</div>
+    {  tododata.length === 0 ? 'Data not Exist':null   }
+
+    {tododata.map((item,index) =>
+    
+        <div key={{index}} className="row Nk-list">
+        <div className="col-4">{item.name}</div>
+        <div className="col-4 ">{item.dob}</div>
         <div className="col-4 ">
           <button className="btn btn-danger nk-button">Delete </button>
         </div>
       </div>
-      <div className="row Nk-list">
-        <div className="col-4">Narendra Kumar</div>
-        <div className="col-4 ">20/11/1989</div>
-        <div className="col-4 ">
-          <button className="btn btn-danger nk-button">Delete </button>
-        </div>
-      </div>
+      )}
+    
+      
+      
+     
     </>
   );
 };
