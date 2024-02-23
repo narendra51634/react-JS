@@ -6,13 +6,13 @@ const Todolist = (props) => {
     <>
     {  tododata.length === 0 ? 'Data not Exist':null   }
 
-    {tododata.map((item,index) =>
+    {tododata.map((item) =>
     
-        <div key={{index}} className="row Nk-list">
+        <div key={{item}} className="row Nk-list">
         <div className="col-4">{item.name}</div>
         <div className="col-4 ">{item.dob}</div>
         <div className="col-4 ">
-          <button className="btn btn-danger nk-button">Delete </button>
+          <button onClick={()=> props.deletetodo(item.name)} className="btn btn-danger nk-button">Delete </button>
         </div>
       </div>
       )}
