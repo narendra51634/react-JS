@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import addcss from "./addtodo.module.css";
-const Addtodo = ({ hendelAddTodo }) => {
+import { todoitemContaxt } from "../Store/ItemStore";
+const Addtodo = () => {
   const [inputVal, setInputVal] = useState("");
-
   const [inputDate, setInputDate] = useState("");
 
+  const todoItemObj = useContext(todoitemContaxt); 
+     console.log(todoItemObj);
+  //const editTodo = todoItemObj.editTodo
+
+  const { addNewItem } = useContext(todoitemContaxt);
+  
+ 
+  
   const hendelInputValue = (event) => {
     setInputVal(event.target.value);
   };
@@ -15,10 +23,12 @@ const Addtodo = ({ hendelAddTodo }) => {
 
   const hendelAddTododata = () => {
     let tododata = { name: inputVal, dob: inputDate };
-    hendelAddTodo(tododata);
+    addNewItem(tododata);
     setInputVal("");
     setInputDate("");
   };
+
+
 
   return (
     <>
